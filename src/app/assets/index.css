@@ -1,11 +1,14 @@
 :root {
     --background-color: #131316;
+    --secondary-bg-color: #2f2f37;
     --dialog-bg-color: #1c1c21;
     --accent-color: #4c4cff;
     --text-primary-color: #f2f2f3;
     --text-secondary-color: #8585ad;
     --scrollbar-bg-color: #2f2f37;
     --scrollbar-thumb-color: #8585ad;
+
+    --transition-delay: 150ms;
 }
 
 ::-webkit-scrollbar {

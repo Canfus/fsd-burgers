@@ -1,12 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { routerRoutes } from '@shared/router';
+import AppLayout from '@pages/layout';
 
 import { AuthProvider } from '../providers';
 
 export const Router = () => (
   <Routes>
-    <Route path={routerRoutes.home} element={<div>Application layout</div>}>
+    <Route path={routerRoutes.home} element={<AppLayout />}>
       {/* LABEL: protected routes start */}
       <Route element={<AuthProvider />}>
         <Route path={routerRoutes.profile} element={<div>Profile layout</div>}>

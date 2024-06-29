@@ -1,7 +1,8 @@
 import { Router } from './router';
+import { RootProvider } from './providers';
 
 export const App = () => (
-  <div>
+  <RootProvider>
     <Router />
-  </div>
+  </RootProvider>
 );

@@ -1,1 +1,19 @@
-export * from '@ya.praktikum/react-developer-burger-ui-components/dist/ui/icons';
+export {
+  CurrencyIcon,
+  BurgerIcon,
+  LockIcon,
+  DragIcon,
+  CloseIcon,
+  CheckMarkIcon,
+  ListIcon,
+  ProfileIcon,
+  EditIcon,
+  InfoIcon,
+  ShowIcon,
+  HideIcon,
+  LogoutIcon,
+  DeleteIcon,
+  ArrowUpIcon,
+  ArrowDownIcon,
+  MenuIcon,
+} from '@ya.praktikum/react-developer-burger-ui-components/dist/ui/icons';
