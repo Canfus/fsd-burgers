@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '-':
+        specifier: ^0.0.1
+        version: 0.0.1
       '@reduxjs/toolkit':
         specifier: ^2.2.5
         version: 2.2.5(react-redux@9.1.2(@types/react@18.3.3)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
@@ -20,9 +23,6 @@ importers:
       axios:
         specifier: ^1.7.2
         version: 1.7.2
-      prettier:
-        specifier: ^3.3.2
-        version: 3.3.2
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -60,14 +60,23 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.7
         version: 0.4.7(eslint@8.57.0)
+      prettier:
+        specifier: ^3.3.2
+        version: 3.3.2
       typescript:
         specifier: ^5.2.2
         version: 5.5.2
       vite:
         specifier: ^5.3.1
         version: 5.3.2
+      vite-tsconfig-paths:
+        specifier: ^4.3.2
+        version: 4.3.2(typescript@5.5.2)(vite@5.3.2)
 
 packages:
+
+  '-@0.0.1':
+    resolution: {integrity: sha512-3HfneK3DGAm05fpyj20sT3apkNcvPpCuccOThOPdzz8sY7GgQGe0l93XH9bt+YzibcTIgUAIMoyVJI740RtgyQ==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -855,6 +864,9 @@ packages:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
     engines: {node: '>=10'}
 
+  globrex@0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
@@ -1190,6 +1202,16 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
+  tsconfck@3.1.1:
+    resolution: {integrity: sha512-00eoI6WY57SvZEVjm13stEVE90VkEdJAFGgpFLTsZbJyW/LwFQ7uQxJHWpZ2hzSWgCPKc9AnBnNP+0X7o3hAmQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -1216,6 +1238,14 @@ packages:
     resolution: {integrity: sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  vite-tsconfig-paths@4.3.2:
+    resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
+    peerDependencies:
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
+        optional: true
 
   vite@5.3.2:
     resolution: {integrity: sha512-6lA7OBHBlXUxiJxbO5aAY2fsHHzDr1q7DvXYnyZycRs2Dz+dXBWuhpWHvmljTRTpQC2uvGmUFFkSHF2vGo90MA==}
@@ -1265,6 +1295,8 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
+
+  '-@0.0.1': {}
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -2069,6 +2101,8 @@ snapshots:
       merge2: 1.4.1
       slash: 3.0.0
 
+  globrex@0.1.2: {}
+
   graphemer@1.4.0: {}
 
   has-flag@3.0.0: {}
@@ -2347,6 +2381,10 @@ snapshots:
     dependencies:
       typescript: 5.5.2
 
+  tsconfck@3.1.1(typescript@5.5.2):
+    optionalDependencies:
+      typescript: 5.5.2
+
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
@@ -2368,6 +2406,17 @@ snapshots:
   use-sync-external-store@1.2.2(react@18.3.1):
     dependencies:
       react: 18.3.1
+
+  vite-tsconfig-paths@4.3.2(typescript@5.5.2)(vite@5.3.2):
+    dependencies:
+      debug: 4.3.5
+      globrex: 0.1.2
+      tsconfck: 3.1.1(typescript@5.5.2)
+    optionalDependencies:
+      vite: 5.3.2
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   vite@5.3.2:
     dependencies:

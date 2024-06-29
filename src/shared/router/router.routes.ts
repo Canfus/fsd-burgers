@@ -1,0 +1,15 @@
+export const routerRoutes = {
+  home: '/',
+  ingredients: '/ingredients',
+  ingredientsById: '/ingredients/:ingredientId',
+  feed: '/feed',
+  feedById: '/feed/:orderId',
+  profile: '/profile',
+  profileOrders: '/profile/orders',
+  profileOrdersById: '/profile/orders/:orderId',
+  login: '/login',
+  register: '/register',
+  forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
+  notFound: '*',
+};
