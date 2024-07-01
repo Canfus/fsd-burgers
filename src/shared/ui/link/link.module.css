@@ -1,0 +1,11 @@
+.link {
+  color: var(--accent-color);
+
+  text-decoration: none;
+
+  transition: text-decodation var(--transition-delay);
+}
+
+.link:not(:disabled):hover {
+  text-decoration: auto;
+}

@@ -1,1 +1,2 @@
-export { customInstance } from './api.instance';
+export * from './models';
+export * from './queries';

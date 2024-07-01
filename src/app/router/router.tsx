@@ -2,6 +2,10 @@ import { Routes, Route } from 'react-router-dom';
 
 import { routerRoutes } from '@shared/router';
 import AppLayout from '@pages/layout';
+import LoginPage from '@pages/login';
+import RegisterPage from '@pages/register';
+import ForgotPasswordPage from '@pages/forgot-password';
+import ResetPasswordPage from '@pages/reset-password';
 
 import { AuthProvider } from '../providers';
 
@@ -38,15 +42,15 @@ export const Router = () => (
         path={routerRoutes.feedById}
         element={<div>Feed by id page</div>}
       />
-      <Route path={routerRoutes.login} element={<div>Login page</div>} />
-      <Route path={routerRoutes.register} element={<div>Register page</div>} />
+      <Route path={routerRoutes.login} element={<LoginPage />} />
+      <Route path={routerRoutes.register} element={<RegisterPage />} />
       <Route
         path={routerRoutes.forgotPassword}
-        element={<div>Forgot password page</div>}
+        element={<ForgotPasswordPage />}
       />
       <Route
         path={routerRoutes.resetPassword}
-        element={<div>Reset password page</div>}
+        element={<ResetPasswordPage />}
       />
       <Route path={routerRoutes.notFound} element={<div>Not found page</div>} />
     </Route>

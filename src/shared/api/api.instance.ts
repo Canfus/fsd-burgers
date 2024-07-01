@@ -13,7 +13,7 @@ customInstance.interceptors.request.use(
     const token = getLocalStorageItem<string>(ACCESS_TOKEN);
 
     if (token) {
-      request.headers.Authorization = `Bearer ${token}`;
+      request.headers.Authorization = token;
     }
 
     return request;
