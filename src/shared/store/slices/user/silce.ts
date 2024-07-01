@@ -6,6 +6,7 @@ import {
 
 import type { User } from '@shared/api';
 
+import { resetStoreAction } from '../../actions';
 import type { Slice } from './slice.interface';
 import { sliceNames } from '../slices.constants';
 
@@ -27,6 +28,11 @@ const slice = createSlice({
   reducers: {
     set: setReducer,
     clear: clearReducer,
+  },
+  extraReducers: (builder) => {
+    builder.addCase(resetStoreAction, (state) => {
+      state.user = null;
+    });
   },
 });
 

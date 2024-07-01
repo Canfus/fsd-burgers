@@ -1,0 +1,31 @@
+.layout {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout__wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-top: 120px;
+}
+
+.layout__navigation {
+  position: absolute;
+  top: 0;
+  left: -100%;
+
+  width: 320px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+

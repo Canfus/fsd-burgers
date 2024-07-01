@@ -4,5 +4,6 @@ export * from './counter';
 export * from './input';
 export * from './logo';
 export * from './tab';
+export * from './tab-nav-link';
 export * from './nav-link';
 export * from './link';

@@ -6,6 +6,8 @@ import LoginPage from '@pages/login';
 import RegisterPage from '@pages/register';
 import ForgotPasswordPage from '@pages/forgot-password';
 import ResetPasswordPage from '@pages/reset-password';
+import ProfileLayout from '@pages/profile/layout';
+import ProfilePage from '@pages/profile';
 
 import { AuthProvider } from '../providers';
 
@@ -14,8 +16,8 @@ export const Router = () => (
     <Route path={routerRoutes.home} element={<AppLayout />}>
       {/* LABEL: protected routes start */}
       <Route element={<AuthProvider />}>
-        <Route path={routerRoutes.profile} element={<div>Profile layout</div>}>
-          <Route index element={<div>Profile page</div>} />
+        <Route path={routerRoutes.profile} element={<ProfileLayout />}>
+          <Route index element={<ProfilePage />} />
           <Route
             path={routerRoutes.profileOrders}
             element={<div>Profile orders page</div>}

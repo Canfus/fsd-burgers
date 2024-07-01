@@ -1,0 +1,16 @@
+.tab_navlink {
+  width: 100%;
+
+  padding: 16px 0;
+
+  color: var(--text-secondary-color);
+
+  text-decoration: none;
+
+  transition: color var(--transition--delay);
+}
+
+.tab_navlink--active {
+  color: var(--text-primary-color);
+}
+

@@ -1,5 +1,7 @@
 import type { Middleware, UnknownAction } from '@reduxjs/toolkit';
 
+import { resetLocalStorage } from '@shared/utils';
+
 import { resetStoreAction } from '../../actions';
 
 export const createResetStoreMiddleware =
@@ -16,6 +18,8 @@ export const createResetStoreMiddleware =
           ...action,
           payload: initialState,
         };
+
+        resetLocalStorage();
 
         return next(actionWithInitialState);
       }
