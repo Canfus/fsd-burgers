@@ -6,11 +6,13 @@ export interface UserRequestBody {
   password?: string;
 }
 
+export interface User {
+  email: string;
+  name: string;
+}
+
 export interface UserResponseBody {
-  user: {
-    email: string;
-    name: string;
-  };
+  user: User;
 }
 
 export type UserResponse = BaseResponse<UserResponseBody>;

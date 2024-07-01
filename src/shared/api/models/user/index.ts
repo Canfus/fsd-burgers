@@ -1,1 +1,1 @@
-export type { UserResponse, UserRequestBody } from './user';
+export type { UserResponse, UserRequestBody, User } from './user';

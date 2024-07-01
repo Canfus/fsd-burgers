@@ -10,6 +10,7 @@ import { useLoginMutation } from '@shared/api';
 import { setLocalStorageItem, getLocalStorageItem } from '@shared/utils';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '@shared/constants';
 import { routerGetUrls } from '@shared/router';
+import { useAppDispatch, userActions } from '@shared/store';
 
 import { schema } from './login.schema';
 import { defaultValues } from './login.constants';
@@ -17,6 +18,9 @@ import type { Schema } from './login.interface';
 import styles from './login.module.css';
 
 const LoginPage = () => {
+  const dispatch = useAppDispatch();
+  const { set } = userActions;
+
   const navigate = useNavigate();
   const { state } = useLocation();
 
@@ -28,9 +32,11 @@ const LoginPage = () => {
   });
 
   const { mutate: login } = useLoginMutation({
-    onSuccess: ({ accessToken, refreshToken }) => {
+    onSuccess: ({ accessToken, refreshToken, user }) => {
       setLocalStorageItem(ACCESS_TOKEN, accessToken);
       setLocalStorageItem(REFRESH_TOKEN, refreshToken);
+
+      dispatch(set(user));
 
       navigate(state.from ?? routerGetUrls.getHomePage());
     },

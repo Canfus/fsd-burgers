@@ -1,0 +1,1 @@
+export { resetStoreAction } from './action';

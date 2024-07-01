@@ -3,17 +3,20 @@ import { Outlet, Link } from 'react-router-dom';
 import { Logo, NavLink } from '@shared/ui';
 import { BurgerIcon, ListIcon, ProfileIcon } from '@shared/icons';
 import { routerGetUrls } from '@shared/router';
-import { getLocalStorageItem } from '@shared/utils';
+import { getLocalStorageItem, isNull } from '@shared/utils';
 import { ACCESS_TOKEN } from 'shared/constants';
 import { useGetUserQuery } from '@shared/api';
+import { useAppSelector, selectUser } from '@shared/store';
 
 import styles from './layout.module.css';
 
 const AppLayout = () => {
   const token = getLocalStorageItem<string>(ACCESS_TOKEN);
 
+  const user = useAppSelector(selectUser);
+
   const { data } = useGetUserQuery({
-    enabled: Boolean(token),
+    enabled: isNull(user) && Boolean(token),
   });
 
   return (
@@ -50,8 +53,7 @@ const AppLayout = () => {
               <ProfileIcon type={isActive ? 'primary' : 'secondary'} />
             )}
           >
-            {data ? data.user.name : 'Личный кабинет'}
-            {/* TODO: replace to store */}
+            {user ? user.name : data ? data.user.name : 'Личный кабинет'}
           </NavLink>
         </div>
       </nav>
