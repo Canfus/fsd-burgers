@@ -7,3 +7,4 @@ export * from './tab';
 export * from './tab-nav-link';
 export * from './nav-link';
 export * from './link';
+export * from './loader';
