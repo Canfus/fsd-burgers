@@ -23,7 +23,7 @@ const ProfilePage = () => {
       resolver: zodResolver(schema),
       defaultValues: {
         ...defaultValues,
-        ...data.user,
+        ...data?.user,
       },
     });
 

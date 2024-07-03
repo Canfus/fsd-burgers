@@ -29,7 +29,15 @@ export const Ingredient: FC<IngredientProps> = ({
       <span>{ingredient.price}</span>
       <CurrencyIcon type="primary" />
     </section>
-    <p className="text text_type_main-small">{ingredient.name}</p>
+    <p
+      className={classNames(
+        styles.ingredient__name,
+        'text',
+        'text_type_main-small',
+      )}
+    >
+      {ingredient.name}
+    </p>
     {count > 0 && <Counter count={count} />}
   </div>
 );
