@@ -5,6 +5,10 @@ export const queryKeys = {
    * Ключ для кеширования данных юзера
    */
   getUser: () => ['user'],
+  /**
+   * Ключ для кеширования списка ингредиентов
+   */
+  getIngredientList: () => ['ingredients'],
 };
 
 export const endpoints = {
@@ -40,4 +44,12 @@ export const endpoints = {
    * Эндпоинт для восстановления пароля
    */
   getResetPassword: () => ['password-reset', 'reset'].join('/'),
+  /**
+   * Эндпоинт для создания заказа
+   */
+  getCreateOrder: () => ['orders'].join('/'),
+  /**
+   * Эндпоинт для получения списка ингредиентов
+   */
+  getIngredientList: () => ['ingredients'].join('/'),
 };

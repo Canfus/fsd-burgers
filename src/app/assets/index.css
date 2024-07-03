@@ -1,25 +1,25 @@
 :root {
-    --background-color: #131316;
-    --secondary-bg-color: #2f2f37;
-    --dialog-bg-color: #1c1c21;
-    --accent-color: #4c4cff;
-    --text-primary-color: #f2f2f3;
-    --text-secondary-color: #8585ad;
-    --scrollbar-bg-color: #2f2f37;
-    --scrollbar-thumb-color: #8585ad;
-    --danger-color: #e43f3f;
+  --background-color: #131316;
+  --secondary-bg-color: #2f2f37;
+  --dialog-bg-color: #1c1c21;
+  --accent-color: #4c4cff;
+  --text-primary-color: #f2f2f3;
+  --text-secondary-color: #8585ad;
+  --scrollbar-bg-color: #2f2f37;
+  --scrollbar-thumb-color: #8585ad;
+  --danger-color: #e43f3f;
 
-    --transition-delay: 150ms;
+  --transition-delay: 150ms;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 
-    background-color: var(--scrollbar-bg-color);
+  background-color: var(--scrollbar-bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    width: 100%;
+  width: 100%;
 
-    background-color: var(--scrollbar-thumb-color);
+  background-color: var(--scrollbar-thumb-color);
 }

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
@@ -17,25 +16,24 @@ import styles from './profile.module.css';
 const ProfilePage = () => {
   const queryClient = useQueryClient();
 
+  const { data } = useGetUserQuery();
+
   const { control, handleSubmit, reset, formState, getFieldState } =
     useForm<Schema>({
       resolver: zodResolver(schema),
-      defaultValues,
+      defaultValues: {
+        ...defaultValues,
+        ...data.user,
+      },
     });
 
-  const { data } = useGetUserQuery();
-
-  useEffect(() => {
-    if (data) {
-      reset(data.user);
-    }
-  }, [data, reset]);
-
   const { mutate: update } = useUpdateUserMutation({
-    onSuccess: () => {
+    onSuccess: ({ user }) => {
       queryClient.invalidateQueries({
         queryKey: queryKeys.getUser(),
       });
+
+      reset(user);
     },
   });
 
@@ -76,6 +74,7 @@ const ProfilePage = () => {
         name="password"
         type="password"
         placeholder="Пароль"
+        autoComplete="off"
       />
       <Button htmlType="submit" disabled={!formState.isDirty}>
         Сохранить

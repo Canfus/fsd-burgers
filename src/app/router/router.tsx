@@ -1,15 +1,21 @@
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { routerRoutes } from '@shared/router';
 import AppLayout from '@pages/layout';
-import LoginPage from '@pages/login';
-import RegisterPage from '@pages/register';
-import ForgotPasswordPage from '@pages/forgot-password';
-import ResetPasswordPage from '@pages/reset-password';
-import ProfileLayout from '@pages/profile/layout';
-import ProfilePage from '@pages/profile';
 
 import { AuthProvider } from '../providers';
+
+const ProfileLayout = lazy(() => import('@pages/profile/layout'));
+const ProfilePage = lazy(() => import('@pages/profile'));
+
+const ForgotPasswordPage = lazy(() => import('@pages/forgot-password'));
+const ResetPasswordPage = lazy(() => import('@pages/reset-password'));
+
+const LoginPage = lazy(() => import('@pages/login'));
+const RegisterPage = lazy(() => import('@pages/register'));
+
+const HomePage = lazy(() => import('@pages/home'));
 
 export const Router = () => (
   <Routes>
@@ -29,7 +35,7 @@ export const Router = () => (
         </Route>
       </Route>
       {/* LABEL: protected routes end */}
-      <Route index element={<div>Main page</div>} />
+      <Route index element={<HomePage />} />
       <Route
         path={routerRoutes.ingredients}
         element={<div>Ingredients wrapper</div>}

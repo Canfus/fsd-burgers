@@ -1,0 +1,35 @@
+.container {
+  width: 600px;
+
+  margin-top: 40px;
+}
+
+.container__title {
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+.tabs__wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+
+.container__scroll {
+  max-height: 600px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 0;
+}
+
+.list__item:not(:first-child) {
+  margin-top: 40px;
+}
+

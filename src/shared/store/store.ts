@@ -7,10 +7,11 @@ import {
 import { reducerNames } from './store.constants';
 import { resetStoreAction } from './actions';
 import { createResetStoreMiddleware } from './middleware';
-import { userReducer } from './slices';
+import { userReducer, ingredientsReducer } from './slices';
 
 const combinedReducer = combineReducers({
   [reducerNames.user]: userReducer,
+  [reducerNames.ingredients]: ingredientsReducer,
 });
 
 const rootReducer = (
