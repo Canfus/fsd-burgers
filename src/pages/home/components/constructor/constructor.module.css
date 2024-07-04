@@ -19,6 +19,27 @@
   margin: 0;
 }
 
+.constructor__item {
+  position: relative;
+
+  width: 568px;
+
+  cursor: grab;
+}
+
 .constructor__item:not(:last-child) {
   margin-bottom: 16px;
+}
+
+.constructor__item_drag {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  translate: 0 -50%;
+}
+
+.constructor__element {
+  display: block;
+
+  margin-left: auto;
 }

@@ -9,6 +9,7 @@ import {
   selectConstructor,
 } from '@shared/store';
 import { ConstructorElement } from '@shared/widget';
+import { DragIcon } from '@shared/icons';
 import { isNil, isArrayEmpty } from '@shared/utils';
 
 import type { ConstructorProps } from './constructor.interface';
@@ -32,6 +33,7 @@ export const Constructor: FC<ConstructorProps> = ({ className, ...props }) => {
         price={bun.price}
         type="top"
         isLocked
+        extraClass={styles.constructor__element}
       />
       {!isArrayEmpty(constructor) && (
         <Reorder.Group
@@ -48,11 +50,15 @@ export const Constructor: FC<ConstructorProps> = ({ className, ...props }) => {
               value={ingredient}
               className={styles.constructor__item}
             >
+              <section className={styles.constructor__item_drag}>
+                <DragIcon type="primary" />
+              </section>
               <ConstructorElement
                 text={ingredient.name}
                 thumbnail={ingredient.image_mobile}
                 price={ingredient.price}
                 handleClose={() => dispatch(remove(ingredient.uid))}
+                extraClass={styles.constructor__element}
               />
             </Reorder.Item>
           ))}
@@ -64,6 +70,7 @@ export const Constructor: FC<ConstructorProps> = ({ className, ...props }) => {
         price={bun.price}
         type="bottom"
         isLocked
+        extraClass={styles.constructor__element}
       />
     </div>
   );
