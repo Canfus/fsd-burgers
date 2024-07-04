@@ -43,7 +43,7 @@ export const Constructor: FC<ConstructorProps> = ({ className, ...props }) => {
         >
           {constructor.map((ingredient) => (
             <Reorder.Item
-              key={ingredient._id}
+              key={ingredient.uid}
               as="li"
               value={ingredient}
               className={styles.constructor__item}
@@ -52,7 +52,7 @@ export const Constructor: FC<ConstructorProps> = ({ className, ...props }) => {
                 text={ingredient.name}
                 thumbnail={ingredient.image_mobile}
                 price={ingredient.price}
-                handleClose={() => dispatch(remove(ingredient._id))}
+                handleClose={() => dispatch(remove(ingredient.uid))}
               />
             </Reorder.Item>
           ))}

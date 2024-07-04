@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { forwardRef } from 'react';
 
 import { constructorActions, useAppDispatch } from '@shared/store';
+import { getUID } from '@shared/utils';
 
 import { Ingredient } from '../ingredient';
 
@@ -25,7 +26,9 @@ export const IngredientList = forwardRef<
           <Ingredient
             key={ingredient._id}
             ingredient={ingredient}
-            onClick={(ingredient) => dispatch(append(ingredient))}
+            onClick={(ingredient) =>
+              dispatch(append({ ...ingredient, uid: getUID() }))
+            }
           />
         ))}
       </div>

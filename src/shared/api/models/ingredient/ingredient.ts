@@ -15,9 +15,12 @@ export interface Ingredient {
   __v: number;
 }
 
+export type UniqueIngredient = Ingredient & {
+  uid: string;
+};
+
 interface IngredientList {
   data: Ingredient[];
 }
 
 export type IngredientListResponse = BaseResponse<IngredientList>;
-

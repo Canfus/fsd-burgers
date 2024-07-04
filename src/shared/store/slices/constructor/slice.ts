@@ -4,7 +4,7 @@ import {
   type CaseReducer,
 } from '@reduxjs/toolkit';
 
-import type { Ingredient } from '@shared/api';
+import type { UniqueIngredient } from '@shared/api';
 import { isArrayEmpty } from '@shared/utils';
 
 import type { Slice } from './slice.interface';
@@ -14,7 +14,7 @@ const initialState: Slice = {
   items: [],
 };
 
-const updateList: CaseReducer<Slice, PayloadAction<Ingredient[]>> = (
+const updateList: CaseReducer<Slice, PayloadAction<UniqueIngredient[]>> = (
   state,
   action,
 ) => {
@@ -27,7 +27,7 @@ const clearList: CaseReducer<Slice> = (state) => {
   state.items = [];
 };
 
-const appendItem: CaseReducer<Slice, PayloadAction<Ingredient>> = (
+const appendItem: CaseReducer<Slice, PayloadAction<UniqueIngredient>> = (
   state,
   action,
 ) => {
@@ -44,7 +44,7 @@ const removeItem: CaseReducer<Slice, PayloadAction<string>> = (
   action,
 ) => {
   const updatedPayload = state.items.filter(
-    (ingredient) => ingredient._id !== action.payload,
+    (ingredient) => ingredient.uid !== action.payload,
   );
 
   state.items = updatedPayload;

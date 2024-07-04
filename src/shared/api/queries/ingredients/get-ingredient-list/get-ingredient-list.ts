@@ -16,9 +16,10 @@ export const useGetIngredientListQuery = (
 ) =>
   useSuspenseQuery<IngredientListResponse, AxiosError>({
     queryKey: queryKeys.getIngredientList(),
-    queryFn: async () => {
+    queryFn: async ({ signal }) => {
       const { data } = await customInstance.get<IngredientListResponse>(
         endpoints.getIngredientList(),
+        { signal },
       );
 
       return data;
@@ -26,4 +27,3 @@ export const useGetIngredientListQuery = (
     staleTime: STALE_TIME,
     ...options,
   });
-

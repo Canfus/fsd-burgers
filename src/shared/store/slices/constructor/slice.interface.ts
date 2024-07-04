@@ -1,5 +1,5 @@
-import type { Ingredient } from '@shared/api';
+import type { UniqueIngredient } from '@shared/api';
 
 export interface Slice {
-  items: Ingredient[];
+  items: UniqueIngredient[];
 }

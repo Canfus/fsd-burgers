@@ -38,4 +38,3 @@ const { set, clear } = slice.actions;
 export const ingredientsActions: typeof slice.actions = { set, clear };
 
 export const { reducer: ingredientsReducer } = slice;
-

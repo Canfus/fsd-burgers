@@ -4,21 +4,24 @@ import { useQueryClient } from '@tanstack/react-query';
 import { TabNavLink } from '@shared/ui';
 import { routerGetUrls } from '@shared/router';
 import { useLogoutMutation } from '@shared/api';
-import { useAppDispatch, resetStoreAction } from '@shared/store';
-import { getLocalStorageItem } from '@shared/utils';
+import { useAppDispatch, userActions } from '@shared/store';
+import { getLocalStorageItem, resetLocalStorage } from '@shared/utils';
 import { REFRESH_TOKEN } from '@shared/constants';
 
 import styles from './layout.module.css';
 
 const ProfileLayout = () => {
-  const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
+  const dispatch = useAppDispatch();
+  const { clear } = userActions;
 
   const { mutate: logout } = useLogoutMutation({
     onSettled: () => {
+      resetLocalStorage();
+
       queryClient.clear();
 
-      dispatch(resetStoreAction());
+      dispatch(clear());
     },
   });
 
@@ -50,4 +53,3 @@ const ProfileLayout = () => {
 };
 
 export default ProfileLayout;
-
