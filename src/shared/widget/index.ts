@@ -1,3 +1,5 @@
+export { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
+
 export * from './text-field';
 export * from './fallback';
 export * from './ingredient';

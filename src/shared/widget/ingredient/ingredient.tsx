@@ -11,34 +11,49 @@ export const Ingredient: FC<IngredientProps> = ({
   ingredient,
   count = 0,
   className,
+  onClick,
   ...props
-}) => (
-  <div {...props} className={classNames(styles.ingredient, className)}>
-    <img
-      src={ingredient.image}
-      alt="Ingredient picture"
-      className={styles.ingredient__image}
-    />
-    <section
-      className={classNames(
-        styles.ingredient__currency,
-        'text',
-        'text_type_digits-default',
-      )}
-    >
-      <span>{ingredient.price}</span>
-      <CurrencyIcon type="primary" />
-    </section>
-    <p
-      className={classNames(
-        styles.ingredient__name,
-        'text',
-        'text_type_main-small',
-      )}
-    >
-      {ingredient.name}
-    </p>
-    {count > 0 && <Counter count={count} />}
-  </div>
-);
+}) => {
+  const onIngredientClick = () => {
+    if (onClick) {
+      onClick(ingredient);
+    }
+  };
 
+  return (
+    <div
+      {...props}
+      onClick={onIngredientClick}
+      role="button"
+      aria-hidden
+      aria-label="Ingredient"
+      className={classNames(styles.ingredient, className)}
+    >
+      <img
+        src={ingredient.image}
+        alt="Ingredient picture"
+        className={styles.ingredient__image}
+      />
+      <section
+        className={classNames(
+          styles.ingredient__currency,
+          'text',
+          'text_type_digits-default',
+        )}
+      >
+        <span>{ingredient.price}</span>
+        <CurrencyIcon type="primary" />
+      </section>
+      <p
+        className={classNames(
+          styles.ingredient__name,
+          'text',
+          'text_type_main-small',
+        )}
+      >
+        {ingredient.name}
+      </p>
+      {count > 0 && <Counter count={count} />}
+    </div>
+  );
+};

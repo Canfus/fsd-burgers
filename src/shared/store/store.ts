@@ -4,14 +4,14 @@ import {
   type UnknownAction,
 } from '@reduxjs/toolkit';
 
-import { reducerNames } from './store.constants';
 import { resetStoreAction } from './actions';
 import { createResetStoreMiddleware } from './middleware';
-import { userReducer, ingredientsReducer } from './slices';
+import { userReducer, ingredientsReducer, constructorReducer } from './slices';
 
 const combinedReducer = combineReducers({
-  [reducerNames.user]: userReducer,
-  [reducerNames.ingredients]: ingredientsReducer,
+  userReducer,
+  ingredientsReducer,
+  constructorReducer,
 });
 
 const rootReducer = (

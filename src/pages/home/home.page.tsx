@@ -3,7 +3,7 @@ import { type FC } from 'react';
 import { useGetIngredientListQuery } from '@shared/api';
 import { useAppDispatch, ingredientsActions } from '@shared/store';
 
-import { IngredientContainer } from './components';
+import { ConstructorContainer, IngredientContainer } from './components';
 import styles from './home.module.css';
 
 const HomePage: FC = () => {
@@ -17,9 +17,9 @@ const HomePage: FC = () => {
   return (
     <div className={styles.page}>
       <IngredientContainer />
+      <ConstructorContainer />
     </div>
   );
 };
 
 export default HomePage;
-

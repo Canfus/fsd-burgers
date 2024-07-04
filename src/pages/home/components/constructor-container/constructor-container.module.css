@@ -1,0 +1,38 @@
+.container {
+  margin-top: 100px;
+}
+
+.container--empty {
+  width: 536px;
+  height: 700px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 4px dashed var(--secondary-bg-color);
+  border-radius: 10px;
+}
+
+.container--empty > p {
+  text-align: center;
+}
+
+.container__price_wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 40px;
+  column-gap: 40px;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  column-gap: 8px;
+}
