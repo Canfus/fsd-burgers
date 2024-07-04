@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
@@ -21,11 +22,14 @@ const ProfilePage = () => {
   const { control, handleSubmit, reset, formState, getFieldState } =
     useForm<Schema>({
       resolver: zodResolver(schema),
-      defaultValues: {
-        ...defaultValues,
-        ...data?.user,
-      },
+      defaultValues,
     });
+
+  useEffect(() => {
+    if (data) {
+      reset(data.user);
+    }
+  }, [data, reset]);
 
   const { mutate: update } = useUpdateUserMutation({
     onSuccess: ({ user }) => {
