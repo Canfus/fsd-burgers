@@ -27,6 +27,10 @@
   cursor: grab;
 }
 
+.constructor__item:active {
+  cursor: grabbing;
+}
+
 .constructor__item:not(:last-child) {
   margin-bottom: 16px;
 }
