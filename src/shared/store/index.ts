@@ -5,6 +5,7 @@ export {
   selectUser,
   ingredientsActions,
   selectIngredientList,
+  selectSelectedIngredient,
   selectBunIngredientList,
   selectMainIngredientList,
   selectSauceIngredientList,

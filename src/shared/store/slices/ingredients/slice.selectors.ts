@@ -26,3 +26,8 @@ export const selectSauceIngredientList = createSelector(
   (ingredients: Ingredient[]) =>
     ingredients.filter((ingredient) => ingredient.type === 'sauce'),
 );
+
+export const selectSelectedIngredient = createSelector(
+  [(store: RootState) => store.ingredientsReducer.selectedIngredient],
+  (selected) => selected,
+);
