@@ -3,6 +3,8 @@ import { ReactQueryProvider } from './react-query';
 import { ReduxProvider } from './redux';
 import { SuspenseProvider } from './suspense';
 import { ErrorBoundaryProvider } from './error-boundary';
+import { DialogsProvider } from './dialogs';
+import { DndProvider } from './dnd';
 
 import type { ProviderProps } from './providers.interface';
 
@@ -11,7 +13,11 @@ export const RootProvider = ({ children }: ProviderProps) => (
     <SuspenseProvider>
       <ReactQueryProvider>
         <ReduxProvider>
-          <RouterProvider>{children}</RouterProvider>
+          <RouterProvider>
+            <DndProvider>
+              <DialogsProvider>{children}</DialogsProvider>
+            </DndProvider>
+          </RouterProvider>
         </ReduxProvider>
       </ReactQueryProvider>
     </SuspenseProvider>

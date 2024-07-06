@@ -4,11 +4,13 @@ export interface OrderRequestBody {
   ingredients: string[];
 }
 
+export interface Order {
+  number: number;
+}
+
 interface OrderResponseBody {
   name: string;
-  order: {
-    number: number;
-  };
+  order: Order;
 }
 
 export type OrderResponse = BaseResponse<OrderResponseBody>;

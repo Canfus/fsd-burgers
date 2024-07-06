@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { FC } from 'react';
+import { type FC } from 'react';
 
 import {
   useAppSelector,
@@ -37,11 +37,17 @@ export const IngredientPreviewDialog: FC<IngredientPreviewDialogProps> = (
       open={isOpen}
       onOpenChange={onDialogClose}
       title="Детали ингредиента"
+      className={styles.dialog}
     >
-      <img src={ingredient.image_large} alt="Ingredient preview" />
+      <img
+        src={ingredient.image_large}
+        alt="Ingredient preview"
+        className="mb-4"
+      />
       <p
         className={classNames(
           styles.ingredient__name,
+          'mb-8',
           'text',
           'text_type_main-medium',
         )}
@@ -50,7 +56,7 @@ export const IngredientPreviewDialog: FC<IngredientPreviewDialogProps> = (
       </p>
       <div className={styles.ingredient__description_wrapper}>
         <div className={styles.ingredient__description}>
-          <p className="text text_type_main-small text_color_inactive">
+          <p className="text text_type_main-default text_color_inactive">
             Калории, ккал
           </p>
           <p className="text text_type_digits-default text_color_inactive">
@@ -58,7 +64,7 @@ export const IngredientPreviewDialog: FC<IngredientPreviewDialogProps> = (
           </p>
         </div>
         <div className={styles.ingredient__description}>
-          <p className="text text_type_main-small text_color_inactive">
+          <p className="text text_type_main-default text_color_inactive">
             Белки, г
           </p>
           <p className="text text_type_digits-default text_color_inactive">
@@ -66,7 +72,7 @@ export const IngredientPreviewDialog: FC<IngredientPreviewDialogProps> = (
           </p>
         </div>
         <div className={styles.ingredient__description}>
-          <p className="text text_type_main-small text_color_inactive">
+          <p className="text text_type_main-default text_color_inactive">
             Жиры, г
           </p>
           <p className="text text_type_digits-default text_color_inactive">
@@ -74,7 +80,7 @@ export const IngredientPreviewDialog: FC<IngredientPreviewDialogProps> = (
           </p>
         </div>
         <div className={styles.ingredient__description}>
-          <p className="text text_type_main-small text_color_inactive">
+          <p className="text text_type_main-default text_color_inactive">
             Углеводы, г
           </p>
           <p className="text text_type_digits-default text_color_inactive">

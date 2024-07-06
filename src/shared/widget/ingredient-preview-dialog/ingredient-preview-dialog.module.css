@@ -1,0 +1,30 @@
+.dialog {
+  width: 640px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ingredient__name {
+  text-align: center;
+}
+
+.ingredient__description_wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  column-gap: 20px;
+}
+
+.ingredient__description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+

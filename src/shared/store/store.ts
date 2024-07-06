@@ -6,12 +6,18 @@ import {
 
 import { resetStoreAction } from './actions';
 import { createResetStoreMiddleware } from './middleware';
-import { userReducer, ingredientsReducer, constructorReducer } from './slices';
+import {
+  userReducer,
+  ingredientsReducer,
+  constructorReducer,
+  orderReducer,
+} from './slices';
 
 const combinedReducer = combineReducers({
   userReducer,
   ingredientsReducer,
   constructorReducer,
+  orderReducer,
 });
 
 const rootReducer = (

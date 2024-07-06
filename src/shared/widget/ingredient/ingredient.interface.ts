@@ -1,8 +1,5 @@
 import type { Ingredient } from '@shared/api';
 
-export interface IngredientProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {
+export interface IngredientProps extends React.HTMLAttributes<HTMLDivElement> {
   ingredient: Ingredient;
-  count?: number;
-  onClick?: (ingredient: Ingredient) => void;
 }

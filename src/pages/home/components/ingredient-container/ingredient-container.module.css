@@ -27,6 +27,7 @@
   overflow-x: hidden;
 
   padding: 0;
+  padding-right: 10px;
 }
 
 .list__item:not(:first-child) {

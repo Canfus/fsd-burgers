@@ -13,6 +13,8 @@
 }
 
 ::-webkit-scrollbar {
+  position: absolute;
+
   width: 8px;
 
   background-color: var(--scrollbar-bg-color);

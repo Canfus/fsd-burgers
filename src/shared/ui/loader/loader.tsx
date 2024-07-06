@@ -1,17 +1,74 @@
-import classNames from 'classnames';
-
 import styles from './loader.module.css';
 
 export const Loader = () => (
-  <div className={styles.astronaut}>
-    <div className={styles.head} />
-    <div className={classNames(styles.arm, styles['arm-left'])} />
-    <div className={classNames(styles.arm, styles['arm-right'])} />
-    <div className={styles.body}>
-      <div className={styles.panel} />
-    </div>
-    <div className={classNames(styles.leg, styles['leg-left'])} />
-    <div className={classNames(styles.leg, styles['leg-right'])} />
-    <div className={styles.schoolbag} />
+  <div className={styles.loader}>
+    <svg
+      width="500"
+      height="500"
+      viewBox="0 0 500 500"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M328.054 228.013C372.454 397.213 237.554 435.513 164.554 433.513C150.154 433.757 153.554 441.615 157.054 445.514C206.554 493.514 273.054 466.514 280.054 462.014C285.654 458.414 289.054 460.514 290.054 462.014C291.554 463.347 293.154 467.114 287.554 471.514C281.954 475.914 277.554 481.347 276.054 483.514C270.454 493.114 277.721 493.514 282.054 492.514C318.388 482.014 392.754 442.214 399.554 367.014C408.054 273.014 348.554 228.013 337.054 222.513C327.854 218.113 327.221 224.347 328.054 228.013Z"
+        fill="#201744"
+      />
+      <path
+        d="M196.084 187.03C330.379 74.9371 422.375 180.776 451.585 247.706C457.925 260.638 463.594 254.221 465.635 249.396C488.051 184.19 435.351 135.467 428.303 131.043C422.664 127.503 423.121 123.533 424.053 121.99C424.623 120.066 427.353 117.017 433.715 120.216C440.078 123.416 446.866 125.09 449.465 125.527C460.535 126.517 457.809 119.769 455.062 116.271C430.118 87.8436 362.488 37.4384 291.526 63.239C202.823 95.4896 187.373 168.473 187.281 181.22C187.207 191.418 193.119 189.342 196.084 187.03Z"
+        fill="#38145F"
+      />
+      <path
+        d="M253.949 340.595C87.5918 286.51 128.272 152.308 169.407 91.9683C176.984 79.7206 168.535 78.3346 163.363 79.1725C96.225 94.88 83.0032 165.424 83.0064 173.745C83.0089 180.403 79.4045 182.129 77.602 182.159C75.6695 182.701 71.6356 182.011 70.9599 174.922C70.2843 167.832 68.0907 161.194 67.0784 158.761C62.0275 148.861 57.7638 154.758 56.2633 158.945C45.4619 195.19 38.7584 279.27 98.3555 325.632C172.852 383.585 242.87 357.843 253.713 351.139C262.387 345.777 257.485 341.875 253.949 340.595Z"
+        fill="#441573"
+      />
+      <g filter="url(#filter0_d_214_159)">
+        <circle cx="250" cy="250" r="50" fill="black" />
+        <circle
+          cx="250"
+          cy="250"
+          r="49"
+          stroke="#4C4CFF"
+          strokeOpacity="0.25"
+          strokeWidth="2"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_214_159"
+          x="50"
+          y="50"
+          width="400"
+          height="400"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset />
+          <feGaussianBlur stdDeviation="75" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0.266667 0 0 0 0 0.0823529 0 0 0 0 0.45098 0 0 0 1 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_214_159"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_214_159"
+            result="shape"
+          />
+        </filter>
+      </defs>
+    </svg>
   </div>
 );
