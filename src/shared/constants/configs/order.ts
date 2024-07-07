@@ -5,4 +5,3 @@ export const orderStatusConfig: Record<OrderStatus, string> = {
   pending: 'Готовится',
   done: 'Выполнен',
 };
-

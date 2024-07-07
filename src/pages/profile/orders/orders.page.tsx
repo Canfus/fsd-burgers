@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   useAppDispatch,
@@ -36,10 +37,13 @@ const ProfileOrdersPage = () => {
       ) : (
         <ul className={styles.container__scroll}>
           {orders.map((order) => (
-            <Order key={order._id} order={order} status className={styles.order} />
+            <li key={order._id} className={styles.order}>
+              <Link to={order._id} className={styles.order__link}>
+                <Order order={order} status />
+              </Link>
+            </li>
           ))}
         </ul>
-
       )}
     </div>
   );

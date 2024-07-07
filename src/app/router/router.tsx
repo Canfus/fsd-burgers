@@ -9,6 +9,7 @@ import { AuthProvider } from '../providers';
 const ProfileLayout = lazy(() => import('@pages/profile/layout'));
 const ProfilePage = lazy(() => import('@pages/profile'));
 const ProfileOrdersPage = lazy(() => import('@pages/profile/orders'));
+const ProfileOrderDetails = lazy(() => import('@pages/profile/order-details'));
 
 const ForgotPasswordPage = lazy(() => import('@pages/forgot-password'));
 const ResetPasswordPage = lazy(() => import('@pages/reset-password'));
@@ -29,27 +30,18 @@ export const Router = () => (
             path={routerRoutes.profileOrders}
             element={<ProfileOrdersPage />}
           />
-          <Route
-            path={routerRoutes.profileOrdersById}
-            element={<div>My order page</div>}
-          />
         </Route>
+        <Route
+          path={routerRoutes.profileOrdersById}
+          element={<ProfileOrderDetails />} // TODO:
+        />
       </Route>
       {/* LABEL: protected routes end */}
       <Route index element={<HomePage />} />
-      <Route
-        path={routerRoutes.ingredients}
-        element={<div>Ingredients wrapper</div>}
-      >
-        <Route
-          path={routerRoutes.ingredientsById}
-          element={<div>Ingredient page</div>}
-        />
-      </Route>
-      <Route path={routerRoutes.feed} element={<div>Feed page</div>} />
+      <Route path={routerRoutes.feed} element={<div>Feed page</div>} /> // TODO:
       <Route
         path={routerRoutes.feedById}
-        element={<div>Feed by id page</div>}
+        element={<div>Feed by id page</div>} // TODO:
       />
       <Route path={routerRoutes.login} element={<LoginPage />} />
       <Route path={routerRoutes.register} element={<RegisterPage />} />
@@ -61,7 +53,8 @@ export const Router = () => (
         path={routerRoutes.resetPassword}
         element={<ResetPasswordPage />}
       />
-      <Route path={routerRoutes.notFound} element={<div>Not found page</div>} />
+      <Route path={routerRoutes.notFound} element={<div>Not found page</div>} />{' '}
+      // TODO:
     </Route>
   </Routes>
 );

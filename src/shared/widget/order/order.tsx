@@ -6,8 +6,8 @@ import { FormattedDate } from '@shared/ui';
 import { isNil } from '@shared/utils';
 import { CurrencyIcon } from '@shared/icons';
 
+import { orderStatusConfig } from '../../constants';
 import type { OrderProps } from './order.interface';
-import { orderStatusConfig } from './order.constants';
 import styles from './order.module.css';
 
 export const Order: FC<OrderProps> = ({
@@ -31,7 +31,7 @@ export const Order: FC<OrderProps> = ({
   }, 0);
 
   return (
-    <li {...props} className={classNames(styles.order, 'p-6', className)}>
+    <div {...props} className={classNames(styles.order, 'p-6', className)}>
       <p className={classNames(styles.order__title, 'mb-6')}>
         <span className="text text_type_digits-default">#{order.number}</span>
         <FormattedDate
@@ -90,7 +90,7 @@ export const Order: FC<OrderProps> = ({
           <CurrencyIcon type="primary" />
         </p>
       </div>
-    </li>
+    </div>
   );
 };
 
