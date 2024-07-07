@@ -9,6 +9,7 @@ import { isArrayEmpty } from '@shared/utils';
 
 import type { Slice } from './slice.interface';
 import { sliceNames } from '../slices.constants';
+import { orderActions } from '../order';
 
 const initialState: Slice = {
   items: [],
@@ -58,6 +59,11 @@ const slice = createSlice({
     clear: clearList,
     remove: removeItem,
     update: updateList,
+  },
+  extraReducers: (builder) => {
+    builder.addCase(orderActions.set, (state) => {
+      state.items = [];
+    });
   },
 });
 

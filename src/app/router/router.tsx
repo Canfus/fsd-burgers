@@ -33,7 +33,7 @@ export const Router = () => (
         </Route>
         <Route
           path={routerRoutes.profileOrdersById}
-          element={<ProfileOrderDetails />} // TODO:
+          element={<ProfileOrderDetails />}
         />
       </Route>
       {/* LABEL: protected routes end */}

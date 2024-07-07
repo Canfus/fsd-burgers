@@ -41,6 +41,7 @@ export const IngredientPreviewDialog: FC<IngredientPreviewDialogProps> = (
     >
       <img
         src={ingredient.image_large}
+        height={240}
         alt="Ingredient preview"
         className="mb-4"
       />
