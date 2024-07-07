@@ -1,0 +1,18 @@
+.page {
+  margin-top: 40px;
+}
+
+.container__scroll {
+  width: 840px;
+  max-height: 600px;
+
+  overflow-y: auto;
+
+  padding: 0;
+  padding-right: 8px;
+}
+
+.order:not(:last-child) {
+  margin-bottom: 24px;
+}
+

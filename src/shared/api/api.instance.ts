@@ -32,6 +32,8 @@ customInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error instanceof AxiosError) {
+      const originalRequest = error.config;
+
       const { status } = error.response || {};
 
       if (status === 403) {
@@ -44,6 +46,10 @@ customInstance.interceptors.response.use(
 
             setLocalStorageItem(ACCESS_TOKEN, accessToken);
             setLocalStorageItem(REFRESH_TOKEN, refreshToken);
+
+            if (originalRequest) {
+              customInstance.request(originalRequest);
+            }
           })
           .catch(() => {
             resetLocalStorage();

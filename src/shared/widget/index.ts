@@ -7,3 +7,4 @@ export * from './ingredient-list';
 export * from './constructor';
 export * from './ingredient-preview-dialog';
 export * from './order-dialog';
+export * from './order';

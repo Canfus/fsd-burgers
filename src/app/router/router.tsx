@@ -8,6 +8,7 @@ import { AuthProvider } from '../providers';
 
 const ProfileLayout = lazy(() => import('@pages/profile/layout'));
 const ProfilePage = lazy(() => import('@pages/profile'));
+const ProfileOrdersPage = lazy(() => import('@pages/profile/orders'));
 
 const ForgotPasswordPage = lazy(() => import('@pages/forgot-password'));
 const ResetPasswordPage = lazy(() => import('@pages/reset-password'));
@@ -26,7 +27,7 @@ export const Router = () => (
           <Route index element={<ProfilePage />} />
           <Route
             path={routerRoutes.profileOrders}
-            element={<div>Profile orders page</div>}
+            element={<ProfileOrdersPage />}
           />
           <Route
             path={routerRoutes.profileOrdersById}

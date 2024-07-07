@@ -12,14 +12,13 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-  margin-top: 120px;
 }
 
 .layout__navigation {
   position: absolute;
-  top: 0;
-  left: -100%;
+  top: 120px;
+  left: 0;
+  translate: calc(-100% - 60px);
 
   width: 320px;
 

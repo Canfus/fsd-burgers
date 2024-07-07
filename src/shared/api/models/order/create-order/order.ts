@@ -1,4 +1,4 @@
-import type { BaseResponse } from '../base-response.interface';
+import type { BaseResponse } from '../../base-response.interface';
 
 export interface OrderRequestBody {
   ingredients: string[];

@@ -5,12 +5,18 @@ import {
 } from '@reduxjs/toolkit';
 
 import { resetStoreAction } from './actions';
-import { createResetStoreMiddleware } from './middleware';
+import {
+  createResetStoreMiddleware,
+  createSocketMiddleware,
+} from './middleware';
 import {
   userReducer,
   ingredientsReducer,
   constructorReducer,
   orderReducer,
+  orderListReducer,
+  socketReducer,
+  socketActions,
 } from './slices';
 
 const combinedReducer = combineReducers({
@@ -18,6 +24,8 @@ const combinedReducer = combineReducers({
   ingredientsReducer,
   constructorReducer,
   orderReducer,
+  orderListReducer,
+  socketReducer,
 });
 
 const rootReducer = (
@@ -34,5 +42,8 @@ const rootReducer = (
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(createResetStoreMiddleware()),
+    getDefaultMiddleware().concat(
+      createResetStoreMiddleware(),
+      createSocketMiddleware(socketActions),
+    ),
 });
