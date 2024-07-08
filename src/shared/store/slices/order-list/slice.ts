@@ -17,7 +17,7 @@ const setList: CaseReducer<Slice, PayloadAction<OrderItem[]>> = (
   state,
   action,
 ) => {
-  state.orders = action.payload;
+  state.orders = action.payload.reverse();
 };
 
 const clearList: CaseReducer<Slice> = (state) => {
@@ -41,4 +41,3 @@ export const orderListActions: typeof slice.actions = {
 };
 
 export const { reducer: orderListReducer } = slice;
-
