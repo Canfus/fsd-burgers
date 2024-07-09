@@ -56,8 +56,11 @@ export const Order: FC<OrderProps> = ({
               return null;
             }
 
+            const key = `${ingredientId}-${index}`;
+
             return (
               <div
+                key={key}
                 className={styles.ingredient__wrapper}
                 style={{ left: -(20 * index), zIndex: 6 - index }}
               >
@@ -93,4 +96,3 @@ export const Order: FC<OrderProps> = ({
     </div>
   );
 };
-

@@ -1,25 +1,12 @@
 import { getUrl } from '../utils';
 import { routerRoutes } from './router.routes';
-import type {
-  IngredientParams,
-  OrderParams,
-} from '@shared/router/router.interface';
+import type { OrderParams } from '@shared/router/router.interface';
 
 export const routerGetUrls = {
   /**
    * Главная страница
    */
   getHomePage: () => routerRoutes.home,
-  /**
-   * Страница wrapper ингредиента
-   */
-  getIngredientWrapper: () => routerRoutes.ingredients,
-  /**
-   * Страница ингредиента с детальной информацией
-   * @param params айди ингредиента
-   */
-  getIngredientPageById: (params: IngredientParams) =>
-    getUrl(routerRoutes.ingredientsById, params),
   /**
    * Страница ленты заказов
    */

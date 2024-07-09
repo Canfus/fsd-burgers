@@ -11,8 +11,9 @@ import {
   selectPendingOrders,
   selectTotalOrders,
 } from '@shared/store';
-import { routerGetUrls } from '@shared/router';
 import { Order } from '@shared/widget';
+import { Loader } from '@shared/ui';
+import { isArrayEmpty } from '@shared/utils';
 
 import styles from './feed.module.css';
 
@@ -34,6 +35,14 @@ const FeedPage = () => {
   const pendingOrders = useAppSelector(selectPendingOrders);
   const [total, totalToday] = useAppSelector(selectTotalOrders);
 
+  if (isArrayEmpty(orders)) {
+    return (
+      <div className={classNames(styles.page, styles.loader)}>
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className={styles.page}>
       <h2
@@ -48,11 +57,8 @@ const FeedPage = () => {
       <ul className={styles.container__scroll}>
         {orders.map((order) => (
           <li key={order._id} className={styles.order}>
-            <Link
-              to={routerGetUrls.getFeedPageById({
-                orderId: String(order.number),
-              })}
-            >
+            {/* TODO: fix this to routerGetUrls */}
+            <Link to={`/feed/${order.number}`}>
               <Order order={order} />
             </Link>
           </li>

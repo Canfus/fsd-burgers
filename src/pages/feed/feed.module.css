@@ -9,6 +9,12 @@
   column-gap: 60px;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .page_title {
   grid-column: 1 / -1;
 }
