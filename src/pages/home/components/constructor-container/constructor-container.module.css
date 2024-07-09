@@ -1,12 +1,12 @@
 .container {
-  height: 770px;
+  height: calc(100dvh - 234px);
 
   margin-top: 100px;
 }
 
 .container--empty {
   width: 536px;
-  height: 770px;
+  height: 100%;
 
   display: flex;
   justify-content: center;
