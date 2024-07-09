@@ -1,30 +1,110 @@
-# React + TypeScript + Vite
+# Проект Космическая бургерная
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение сервис для бургерной, позволяющее интерактивно собрать свой заказ. Реализована функция перетаскивания ингредиентов из основного меню в конструктор используя Drag&Drop.
 
-Currently, two official plugins are available:
+## Структура проекта
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `app` - основная директория приложения
+  - `assets` - все вспомогательные media проекта (шрифты, иконки, картинки)
+  - `providers` - все провайдеры приложения
+  - `router` - основная маршрутизация приложения
+- `pages` - все страницы приложения
+- `shared` - основной каталог переиспользуемых компонентов
+  - `api` - вся логика, связанная с работой `api`
+    - `models` - все модели для работы с `api`
+    - `queries` - все запросы к `api`, основанные на [@tanstack/react-query](https://tanstack.com/query/latest)
+  - `constants` - все константы, используемые в приложении
+  - `icons` - все иконки приложения в виде React компонентов
+  - `router` - вспомогательные утилиты для маршрутизации
+  - `store` - глобальное хранилище приложения
+    - `actions` - экшены приложения
+    - `hooks` - хуки для взаимодействия с глобальным хранилищем
+    - `middleware` - усилители глобального хранилища
+    - `slices` - слайсы и селекторы глобального хранилища
+  - `types` - вспомогательные типы
+  - `ui` - примитивные компоненты
+  - `utils` - вспомогательные утилиты
+  - `widget` - сложные компоненты, использующие другие компоненты
 
-## Expanding the ESLint configuration
+## Переменные окружения
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+`.env.local` - файл должен находиться в корне проекта
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+VITE_API_URL=https://norma.nomoreparties.space/api
+VITE_WS_API_URL=wss://norma.nomoreparties.space
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Стек проекта
+
+- `react`: [React](https://react.dev/) - основная библиотека приложения
+- `react-router-dom`: [React Router v.6](https://reactrouter.com/en/main) - роутинг приложения
+- `@radix-ui`: [Radix UI](https://www.radix-ui.com/primitives) - примитивы `ui` компонентов
+- `react-hook-form` : [React Hook Form](https://react-hook-form.com/) - работа с формами
+- `zod`: [Zod](https://zod.dev/) - валидация форм по схеме
+- `@tanstack/react-query`: [TanStack query](https://tanstack.com/query/latest/docs/react/overview) - запросы с кешированием данных
+
+## Утилиты проекта
+
+- [TypeScript](https://www.typescriptlang.org/) для статической типизации
+- [ESLint](https://eslint.org/) для статического анализа кода для выявления проблем
+- [Prettier](https://prettier.io) для автоматического форматирования кода
+
+## Установка проекта
+
+Для установки проекта, нужно сделать клон репозитория и установить все зависимости в корневую директорию:
+
+```shell
+git clone https://github.com/Canfus/fsd-burgers.git
+cd fsd-burgers
+pnpm install
+```
+
+## Сборка проекта
+
+Для сборки проекта, запустить следующую команду:
+
+```shell
+pnpm build
+```
+
+## Запуск сборки
+
+Для запуска собранной версии проекта, запустить следующую команду:
+
+```shell
+pnpm preview
+```
+
+## Запуск сервера для разработки
+
+Для запуска сервера для разработки, запустить следующую команду:
+
+```shell
+pnpm dev
+```
+
+### Проверка проекта на наличие ошибок
+
+Для запуска проверки проекта на наличие ошибок, запустить следующую команду:
+
+```shell
+pnpm run lint
+```
+
+### Форматирование проекта
+
+Для автоматического форматирования всего проекта, запустить следующую команду:
+
+```shell
+pnpm run format
+```
+
+## Доступные скрипты
+
+- `dev`: Запуск сервера для разработки
+- `build`: Сборка проекта
+- `lint`: Проверка проекта на наличие ошибок
+- `preview`: Запуск собранной версии приложения
+- `format`: Автоматическое форматирование проекта
+
