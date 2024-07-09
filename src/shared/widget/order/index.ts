@@ -1,1 +1,1 @@
-export { Order } from './order';
+export { OrderComponent } from './order';

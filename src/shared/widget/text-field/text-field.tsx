@@ -25,7 +25,14 @@ const InnerComponent = <TFieldValues extends FieldValues = FieldValues>({
   const { invalid, error } = fieldState;
 
   return (
-    <Input {...props} {...field} error={invalid} errorText={error?.message} />
+    <Input
+      {...props}
+      {...field}
+      onPointerEnterCapture={undefined}
+      onPointerLeaveCapture={undefined}
+      error={invalid}
+      errorText={error?.message}
+    />
   );
 };
 

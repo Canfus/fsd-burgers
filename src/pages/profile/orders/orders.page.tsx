@@ -9,7 +9,7 @@ import {
 } from '@shared/store';
 import { getLocalStorageItem, isArrayEmpty } from '@shared/utils';
 import { ACCESS_TOKEN } from '@shared/constants';
-import { Order } from '@shared/widget';
+import { OrderComponent } from '@shared/widget';
 import { Loader } from '@shared/ui';
 
 import styles from './orders.module.css';
@@ -39,7 +39,7 @@ const ProfileOrdersPage = () => {
           {orders.map((order) => (
             <li key={order._id} className={styles.order}>
               <Link to={String(order.number)} className={styles.order__link}>
-                <Order order={order} status />
+                <OrderComponent order={order} status />
               </Link>
             </li>
           ))}

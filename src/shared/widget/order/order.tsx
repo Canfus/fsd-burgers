@@ -10,7 +10,7 @@ import { orderStatusConfig } from '../../constants';
 import type { OrderProps } from './order.interface';
 import styles from './order.module.css';
 
-export const Order: FC<OrderProps> = ({
+export const OrderComponent: FC<OrderProps> = ({
   order,
   className,
   status,

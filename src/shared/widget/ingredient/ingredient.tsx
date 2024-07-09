@@ -15,7 +15,7 @@ import { INGREDIENT_TYPE } from '@shared/constants';
 import type { IngredientProps } from './ingredient.interface';
 import styles from './ingredient.module.css';
 
-export const Ingredient: FC<IngredientProps> = ({
+export const IngredientComponent: FC<IngredientProps> = ({
   ingredient,
   className,
   ...props

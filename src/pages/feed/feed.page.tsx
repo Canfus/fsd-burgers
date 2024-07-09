@@ -11,7 +11,7 @@ import {
   selectPendingOrders,
   selectTotalOrders,
 } from '@shared/store';
-import { Order } from '@shared/widget';
+import { OrderComponent } from '@shared/widget';
 import { Loader } from '@shared/ui';
 import { isArrayEmpty } from '@shared/utils';
 
@@ -59,7 +59,7 @@ const FeedPage = () => {
           <li key={order._id} className={styles.order}>
             {/* TODO: fix this to routerGetUrls */}
             <Link to={`/feed/${order.number}`}>
-              <Order order={order} />
+              <OrderComponent order={order} />
             </Link>
           </li>
         ))}
