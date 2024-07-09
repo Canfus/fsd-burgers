@@ -9,7 +9,7 @@ import { AuthProvider } from '../providers';
 const ProfileLayout = lazy(() => import('@pages/profile/layout'));
 const ProfilePage = lazy(() => import('@pages/profile'));
 const ProfileOrdersPage = lazy(() => import('@pages/profile/orders'));
-const ProfileOrderDetails = lazy(() => import('@pages/profile/order-details'));
+const OrderDetailsPage = lazy(() => import('@pages/order-details'));
 
 const ForgotPasswordPage = lazy(() => import('@pages/forgot-password'));
 const ResetPasswordPage = lazy(() => import('@pages/reset-password'));
@@ -18,6 +18,8 @@ const LoginPage = lazy(() => import('@pages/login'));
 const RegisterPage = lazy(() => import('@pages/register'));
 
 const HomePage = lazy(() => import('@pages/home'));
+
+const FeedPage = lazy(() => import('@pages/feed'));
 
 export const Router = () => (
   <Routes>
@@ -33,16 +35,13 @@ export const Router = () => (
         </Route>
         <Route
           path={routerRoutes.profileOrdersById}
-          element={<ProfileOrderDetails />}
+          element={<OrderDetailsPage />}
         />
       </Route>
       {/* LABEL: protected routes end */}
       <Route index element={<HomePage />} />
-      <Route path={routerRoutes.feed} element={<div>Feed page</div>} /> // TODO:
-      <Route
-        path={routerRoutes.feedById}
-        element={<div>Feed by id page</div>} // TODO:
-      />
+      <Route path={routerRoutes.feed} element={<FeedPage />} />
+      <Route path={routerRoutes.feedById} element={<OrderDetailsPage />} />
       <Route path={routerRoutes.login} element={<LoginPage />} />
       <Route path={routerRoutes.register} element={<RegisterPage />} />
       <Route

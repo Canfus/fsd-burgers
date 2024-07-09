@@ -18,7 +18,7 @@ export const createSocketMiddleware =
 
     return (next) => (action) => {
       const { dispatch } = store;
-      const { set, clear } = orderListActions;
+      const { set, clear, setTotal } = orderListActions;
 
       if (actions.wsStartConnecting.match(action)) {
         socket = new WebSocket(
@@ -58,6 +58,7 @@ export const createSocketMiddleware =
               });
           } else {
             dispatch(set(parsedData.orders));
+            dispatch(setTotal(parsedData));
           }
         };
 
@@ -108,4 +109,3 @@ export const createSocketMiddleware =
       return next(action);
     };
   };
-

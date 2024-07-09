@@ -38,7 +38,7 @@ const ProfileOrdersPage = () => {
         <ul className={styles.container__scroll}>
           {orders.map((order) => (
             <li key={order._id} className={styles.order}>
-              <Link to={order._id} className={styles.order__link}>
+              <Link to={String(order.number)} className={styles.order__link}>
                 <Order order={order} status />
               </Link>
             </li>
@@ -50,4 +50,3 @@ const ProfileOrdersPage = () => {
 };
 
 export default ProfileOrdersPage;
-

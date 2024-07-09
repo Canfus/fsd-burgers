@@ -1,5 +1,6 @@
 export * from './actions';
 export { store } from './store';
+export { useAppDispatch, useAppSelector } from './hooks';
 export {
   userActions,
   selectUser,
@@ -16,6 +17,8 @@ export {
   selectOrderDialogState,
   orderListActions,
   selectOrderList,
+  selectPendingOrders,
+  selectDoneOrders,
+  selectTotalOrders,
   socketActions,
 } from './slices';
-export { useAppDispatch, useAppSelector } from './hooks';

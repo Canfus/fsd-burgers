@@ -9,6 +9,11 @@ export const queryKeys = {
    * Ключ для кеширования списка ингредиентов
    */
   getIngredientList: () => ['ingredients'],
+  /**
+   * Ключ для кеширования заказа
+   * @param number номер заказа
+   */
+  getOrder: (number: string) => ['order', number],
 };
 
 export const endpoints = {
@@ -52,4 +57,9 @@ export const endpoints = {
    * Эндпоинт для получения списка ингредиентов
    */
   getIngredientList: () => ['ingredients'].join('/'),
+  /**
+   * Эндпоинт для получения заказа
+   * @param number номер заказа
+   */
+  getOrder: (number: string) => ['orders', number].join('/'),
 };

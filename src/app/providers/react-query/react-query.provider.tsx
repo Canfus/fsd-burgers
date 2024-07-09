@@ -1,14 +1,35 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 
 import type { ProviderProps } from '../providers.interface';
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: false,
+      retry: (_, error) => {
+        if (error instanceof AxiosError) {
+          const { status } = error.response || {};
+
+          if (status === 401) {
+            return true;
+          }
+        }
+
+        return false;
+      },
     },
     mutations: {
-      retry: false,
+      retry: (_, error) => {
+        if (error instanceof AxiosError) {
+          const { status } = error.response || {};
+
+          if (status === 401) {
+            return true;
+          }
+        }
+
+        return false;
+      },
     },
   },
 });

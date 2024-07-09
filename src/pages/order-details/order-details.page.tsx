@@ -5,39 +5,45 @@ import { useParams } from 'react-router-dom';
 import {
   useAppDispatch,
   useAppSelector,
-  socketActions,
   selectOrderList,
+  orderListActions,
 } from '@shared/store';
-import { useGetIngredientListQuery } from '@shared/api';
+import { useGetIngredientListQuery, useGetOrderQuery } from '@shared/api';
 import type { OrderParams } from '@shared/router';
-import { isNil, getLocalStorageItem, isArrayEmpty } from '@shared/utils';
-import { ACCESS_TOKEN, orderStatusConfig } from '@shared/constants';
+import { isNil, isArrayEmpty } from '@shared/utils';
+import { orderStatusConfig } from '@shared/constants';
 import { CurrencyIcon } from '@shared/icons';
 import { FormattedDate, Link } from '@shared/ui';
 
 import styles from './order-details.module.css';
 
 const OrderDetailsPage: FC = () => {
+  const { orderId } = useParams() as unknown as OrderParams;
+
   const dispatch = useAppDispatch();
-  const { wsStartConnecting, wsDisconnecting } = socketActions;
+  const { set, clear } = orderListActions;
+
+  const { data: ordersData } = useGetOrderQuery(orderId || '');
 
   useLayoutEffect(() => {
-    const token = getLocalStorageItem<string>(ACCESS_TOKEN);
+    if (ordersData && ordersData.success) {
+      const { orders } = ordersData;
 
-    dispatch(wsStartConnecting(`orders?token=${token?.split(' ')[1]}`));
+      dispatch(set(orders));
+    }
 
     return () => {
-      dispatch(wsDisconnecting());
+      dispatch(clear());
     };
-  }, [dispatch, wsDisconnecting, wsStartConnecting]);
-
-  const { orderId } = useParams() as unknown as OrderParams;
+  }, [dispatch, ordersData, set, clear]);
 
   const { data } = useGetIngredientListQuery();
 
   const ingredients = data.data;
   const orders = useAppSelector(selectOrderList);
-  const selectedOrder = orders.find((order) => order._id === orderId);
+  const selectedOrder = orders.find(
+    (order) => String(order.number) === orderId,
+  );
 
   if (isNil(selectedOrder)) {
     return null;
@@ -134,4 +140,3 @@ const OrderDetailsPage: FC = () => {
 };
 
 export default OrderDetailsPage;
-
