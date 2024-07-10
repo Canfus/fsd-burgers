@@ -16,7 +16,7 @@ export const useRegisterMutation = (
   useMutation<RegisterResponse, AxiosError, RegisterRequestBody>({
     mutationFn: async (credentials) => {
       const { data } = await customInstance.post<RegisterResponse>(
-        endpoints.getLogin(),
+        endpoints.getRegister(),
         credentials,
       );
 
