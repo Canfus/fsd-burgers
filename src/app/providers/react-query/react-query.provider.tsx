@@ -10,7 +10,7 @@ const queryClient = new QueryClient({
         if (error instanceof AxiosError) {
           const { status } = error.response || {};
 
-          if (status === 401) {
+          if (status === 403) {
             return true;
           }
         }
@@ -23,7 +23,7 @@ const queryClient = new QueryClient({
         if (error instanceof AxiosError) {
           const { status } = error.response || {};
 
-          if (status === 401) {
+          if (status === 403) {
             return true;
           }
         }
