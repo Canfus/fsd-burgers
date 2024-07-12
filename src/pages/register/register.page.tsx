@@ -26,7 +26,7 @@ const RegisterPage = () => {
     defaultValues,
   });
 
-  const { mutate: login } = useRegisterMutation({
+  const { mutate: register } = useRegisterMutation({
     onSuccess: ({ accessToken, refreshToken }) => {
       setLocalStorageItem(ACCESS_TOKEN, accessToken);
       setLocalStorageItem(REFRESH_TOKEN, refreshToken);
@@ -38,7 +38,7 @@ const RegisterPage = () => {
   const onSuccessSubmit: SubmitHandler<Schema> = (values) => {
     console.log('submit successful', values);
 
-    login(values);
+    register(values);
   };
 
   const onRejectSubmit: SubmitErrorHandler<Schema> = (errors) => {
