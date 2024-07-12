@@ -1,3 +1,5 @@
+import { ToastContainer } from 'react-toastify';
+
 import { RouterProvider } from './router';
 import { ReactQueryProvider } from './react-query';
 import { ReduxProvider } from './redux';
@@ -15,7 +17,10 @@ export const RootProvider = ({ children }: ProviderProps) => (
         <ReduxProvider>
           <RouterProvider>
             <DndProvider>
-              <DialogsProvider>{children}</DialogsProvider>
+              <DialogsProvider>
+                {children}
+                <ToastContainer position="bottom-right" theme="dark" />
+              </DialogsProvider>
             </DndProvider>
           </RouterProvider>
         </ReduxProvider>
