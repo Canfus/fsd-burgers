@@ -9,4 +9,5 @@ export * from './nav-link';
 export * from './link';
 export * from './loader';
 export * from './dialog';
-export * from './formatted-date'
+export * from './formatted-date';
+export * from './not-found';
