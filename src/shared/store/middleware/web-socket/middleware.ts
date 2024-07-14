@@ -22,7 +22,7 @@ export const createSocketMiddleware =
 
       if (actions.wsStartConnecting.match(action)) {
         socket = new WebSocket(
-          [import.meta.env.VITE_WS_API_URL, action.payload].join('/'),
+          [process.env.VITE_WS_API_URL, action.payload].join('/'),
         );
         isConnected = true;
 
@@ -52,7 +52,7 @@ export const createSocketMiddleware =
 
                 dispatch(
                   actions.wsStartConnecting(
-                    [import.meta.env.VITE_WS_API_URL, action.payload].join('/'),
+                    [process.env.VITE_WS_API_URL, action.payload].join('/'),
                   ),
                 );
               });
@@ -90,7 +90,7 @@ export const createSocketMiddleware =
             reconnectTimer = window.setInterval(() => {
               dispatch(
                 actions.wsStartConnecting(
-                  [import.meta.env.VITE_WS_API_URL, action.payload].join('/'),
+                  [process.env.VITE_WS_API_URL, action.payload].join('/'),
                 ),
               );
             }, 3000);
