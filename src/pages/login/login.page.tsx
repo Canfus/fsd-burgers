@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { TextField } from '@shared/widget';
 import { Button, Link } from '@shared/ui';
@@ -39,6 +40,17 @@ const LoginPage = () => {
       dispatch(set(user));
 
       navigate(state.from ?? routerGetUrls.getHomePage());
+    },
+    onError: (error) => {
+      const { status } = error.response || {};
+
+      switch (status) {
+        case 401:
+          toast.error('Неправильные логин или пароль');
+          break;
+        default:
+          toast.error('Что-то пошло не так!');
+      }
     },
   });
 
