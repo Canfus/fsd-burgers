@@ -22,7 +22,7 @@ const ResetPasswordPage = () => {
 
   const token = getLocalStorageItem<string>(ACCESS_TOKEN);
 
-  const { control, handleSubmit } = useForm<Schema>({
+  const { control, setError, handleSubmit } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues,
   });
@@ -30,6 +30,15 @@ const ResetPasswordPage = () => {
   const { mutate: login } = useResetPasswordMutation({
     onSuccess: () => {
       navigate(routerGetUrls.getLoginPage());
+    },
+    onError: (error) => {
+      const { status } = error.response || {};
+
+      if (status === 404) {
+        setError('token', {
+          message: 'Неправильный код',
+        });
+      }
     },
   });
 
@@ -63,6 +72,12 @@ const ResetPasswordPage = () => {
           name="password"
           type="password"
           placeholder="Введите новый пароль"
+        />
+        <TextField
+          control={control}
+          name="repeatPassword"
+          type="password"
+          placeholder="Повторите новый пароль"
         />
         <TextField
           control={control}
