@@ -11,7 +11,7 @@ import {
 import { endpoints } from './queries/queries.constants';
 
 export const customInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: process.env.VITE_API_URL,
   withCredentials: false,
 });
 
