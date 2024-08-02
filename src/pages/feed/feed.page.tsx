@@ -55,7 +55,7 @@ const FeedPage = () => {
         Лента заказов
       </h2>
       <ul className={styles.container__scroll}>
-        {orders.map((order) => (
+        {orders?.map((order) => (
           <li key={order._id} className={styles.order}>
             {/* TODO: fix this to routerGetUrls */}
             <Link to={`/feed/${order.number}`}>
@@ -68,7 +68,7 @@ const FeedPage = () => {
         <div>
           <p className="text text_type_main-default">Готовы:</p>
           <ul className={styles.numbers__list}>
-            {doneOrders.map((order) => (
+            {doneOrders?.map((order) => (
               <li
                 key={order._id}
                 className={classNames(
@@ -85,7 +85,7 @@ const FeedPage = () => {
         <div>
           <p className="text text_type_main-default">В работе:</p>
           <ul className={styles.numbers__list}>
-            {pendingOrders.map((order) => (
+            {pendingOrders?.map((order) => (
               <li key={order._id} className="text text_type_digits-default">
                 {order.number}
               </li>

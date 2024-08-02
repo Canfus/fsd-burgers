@@ -10,7 +10,7 @@ import type { Slice } from './slice.interface';
 import { sliceNames } from '../slices.constants';
 
 const initialState: Slice = {
-  orders: [],
+  orders: null,
   total: null,
   totalToday: null,
 };
@@ -31,7 +31,7 @@ const setTotalOrders: CaseReducer<Slice, PayloadAction<OrderListResponse>> = (
 };
 
 const clearList: CaseReducer<Slice> = (state) => {
-  state.orders = [];
+  state.orders = null;
   state.total = null;
   state.totalToday = null;
 };

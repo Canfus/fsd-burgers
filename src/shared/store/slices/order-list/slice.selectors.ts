@@ -9,11 +9,11 @@ export const selectOrderList = createSelector(
 
 export const selectDoneOrders = createSelector(
   [(store: RootState) => store.orderListReducer.orders],
-  (orders) => orders.filter((order) => order.status === 'done'),
+  (orders) => orders?.filter((order) => order.status === 'done'),
 );
 export const selectPendingOrders = createSelector(
   [(store: RootState) => store.orderListReducer.orders],
-  (orders) => orders.filter((order) => order.status === 'pending'),
+  (orders) => orders?.filter((order) => order.status === 'pending'),
 );
 
 export const selectTotalOrders = createSelector(

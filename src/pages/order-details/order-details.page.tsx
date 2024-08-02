@@ -41,7 +41,7 @@ const OrderDetailsPage: FC = () => {
 
   const ingredients = data.data;
   const orders = useAppSelector(selectOrderList);
-  const selectedOrder = orders.find(
+  const selectedOrder = orders?.find(
     (order) => String(order.number) === orderId,
   );
 

@@ -7,10 +7,10 @@ import {
   socketActions,
   selectOrderList,
 } from '@shared/store';
-import { getLocalStorageItem, isArrayEmpty } from '@shared/utils';
+import { getLocalStorageItem, isArrayEmpty, isNull } from '@shared/utils';
 import { ACCESS_TOKEN } from '@shared/constants';
 import { OrderComponent } from '@shared/widget';
-import { Loader } from '@shared/ui';
+import { Loader, NotFound } from '@shared/ui';
 
 import styles from './orders.module.css';
 
@@ -30,10 +30,18 @@ const ProfileOrdersPage = () => {
     };
   }, [dispatch, wsDisconnecting, wsStartConnecting]);
 
+  if (isNull(orders)) {
+    return (
+      <div className={styles.page}>
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className={styles.page}>
       {isArrayEmpty(orders) ? (
-        <Loader />
+        <NotFound />
       ) : (
         <ul className={styles.container__scroll}>
           {orders.map((order) => (
