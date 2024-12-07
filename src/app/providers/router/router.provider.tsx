@@ -1,7 +1,7 @@
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import type { ProviderProps } from '../providers.interface';
 
 export const RouterProvider = ({ children }: ProviderProps) => (
-  <BrowserRouter>{children}</BrowserRouter>
+  <HashRouter>{children}</HashRouter>
 );
